@@ -1,5 +1,7 @@
 # dockerfiles
 
+[![Build Status](https://travis-ci.org/zacheryph/dockerfiles.svg?branch=master)](https://travis-ci.org/zacheryph/dockerfiles)
+
 dockerfiles for... stuff. `port.sh` makes maintaining stubs very easy
 
 ## usage
