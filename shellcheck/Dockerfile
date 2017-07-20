@@ -5,4 +5,7 @@ RUN apt update && apt install -y --no-install-recommends \
   file \
   shellcheck
 
+ENV HOME /home
+WORKDIR $HOME
+
 ENTRYPOINT [ "shellcheck" ]
