@@ -48,9 +48,9 @@ port_build() {
 port_install() {
   find "$PORTDIR" -type f -name run -not -wholename "*/template/run" |
   while read -r runner; do
-    app=$(basename $(dirname $runner))
+    app=$(basename "$(dirname "$runner")")
     echo "== linking ${app}"
-    ln -sf $runner ${HOME}/bin/${app}
+    ln -sf "$runner" "${HOME}/bin/${app}"
   done
 
   # TODO: remove stubs that no longer exist
@@ -63,13 +63,10 @@ port_new() {
     exit
   fi
 
-  mkdir $app
+  mkdir "$app"
 
-  for f in $(ls template); do
-    cat template/$f \
-      | sed "s|__NAME__|$app|" \
-      > $app/$f
-
+  for f in template/*; do
+    sed "s|__NAME__|$app|" "template/$f" > "$app/$f"
     chmod --reference="template/$f" "$app/$f"
   done
 
@@ -125,19 +122,19 @@ cmd=$1 ; shift
 
 case "$cmd" in
   build)
-    port_build $*
+    port_build "$@"
     ;;
   install)
     port_install
     ;;
   new)
-    port_new $*
+    port_new "$@"
     ;;
   push)
-    port_push $*
+    port_push "$@"
     ;;
   tag)
-    port_tag $*
+    port_tag "$@"
     ;;
   *)
     usage
