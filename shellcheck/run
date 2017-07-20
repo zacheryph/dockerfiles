@@ -2,6 +2,7 @@
 
 docker run -it --rm \
   --user $(id -u):$(id -g) \
+  -v ${PWD}:/home \
   --name shellcheck \
   zacheryph/shellcheck "$@"
 
