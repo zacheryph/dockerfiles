@@ -57,6 +57,7 @@ port_install() {
 }
 
 port_new() {
+  app="$1"
   if [[ -d "$app" ]]; then
     echo "$app dockerfile already exists"
     exit
