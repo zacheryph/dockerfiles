@@ -4,5 +4,4 @@ docker run -it --rm \
   --user $(id -u):$(id -g) \
   -v /etc/localtime:/etc/localtime:ro \
   --name __NAME__ \
-  zacheryph/__NAME__
-
+  zacheryph/__NAME__ "$@"
