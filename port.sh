@@ -66,7 +66,7 @@ port_new() {
   mkdir "$app"
 
   for f in template/*; do
-    fn=$(basename $f)
+    fn=$(basename "$f")
     sed "s|__NAME__|$app|" "$f" > "$app/$fn"
     chmod --reference="$f" "$app/$fn"
   done
