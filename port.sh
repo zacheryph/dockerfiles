@@ -66,8 +66,9 @@ port_new() {
   mkdir "$app"
 
   for f in template/*; do
-    sed "s|__NAME__|$app|" "template/$f" > "$app/$f"
-    chmod --reference="template/$f" "$app/$f"
+    fn=$(basename $f)
+    sed "s|__NAME__|$app|" "$f" > "$app/$fn"
+    chmod --reference="$f" "$app/$fn"
   done
 
   echo "== created $app for editing"
