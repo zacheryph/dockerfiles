@@ -1,9 +1,9 @@
 #!/bin/bash
 
 docker run -it --rm \
-  --user $(id -u):$(id -g) \
+  --user "$(id -u):$(id -g)" \
   -v /etc/localtime:/etc/localtime:ro \
-  -v ${HOME}/.weechat:/home/.weechat \
+  -v "${HOME}/.weechat:/home/.weechat" \
   --name weechat \
   zacheryph/weechat
 

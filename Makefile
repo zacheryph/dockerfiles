@@ -13,5 +13,7 @@ test: shellcheck
 shellcheck:
 	docker run --rm -i $(DOCKER_FLAGS) \
 		--name df-shellcheck \
-		-v $(CURDIR):/home:ro \
-		zacheryph/shellcheck port.sh
+		-v $(CURDIR):/usr/src:ro \
+		--workdir /usr/src \
+		--entrypoint ./test.sh \
+		zacheryph/shellcheck
