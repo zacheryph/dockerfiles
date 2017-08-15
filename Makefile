@@ -1,4 +1,16 @@
-.PHONY: test shellcheck
+.PHONY: all link update test shellcheck
+
+all: update link
+
+# Update run commands from external sources
+update:
+	@echo "== updating external run configurations"
+	@mkdir -p docker-compose
+	@curl -L --fail --silent -o docker-compose/run https://github.com/docker/compose/releases/download/1.15.0/run.sh
+	@chmod +x docker-compose/run
+
+link:
+	@exec ./port.sh install
 
 # if this session isn't interactive, then we don't want to allocate a
 # TTY, which would fail, but if it is interactive, we do want to attach
