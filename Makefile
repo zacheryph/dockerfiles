@@ -2,11 +2,13 @@
 
 all: update link
 
+COMPOSE_VERSION := 1.16.1
+
 # Update run commands from external sources
 update:
 	@echo "== updating external run configurations"
 	@mkdir -p docker-compose
-	@curl -L --fail --silent -o docker-compose/run https://github.com/docker/compose/releases/download/1.15.0/run.sh
+	@curl -L --fail --silent -o docker-compose/run https://github.com/docker/compose/releases/download/$(COMPOSE_VERSION)/run.sh
 	@chmod +x docker-compose/run
 
 link:
