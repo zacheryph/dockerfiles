@@ -2,7 +2,7 @@
 
 all: update link
 
-COMPOSE_VERSION := 1.16.1
+COMPOSE_VERSION := 1.17.1
 
 # Update run commands from external sources
 update:
