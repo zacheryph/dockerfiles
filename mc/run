@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker run -it --rm \
+  --user "$(id -u):$(id -g)" \
+  --env HOME=/data \
+  -v /etc/localtime:/etc/localtime:ro \
+  -v "$PWD:/data" \
+  -v "$HOME/.mc:/data/.mc" \
+  --workdir /data \
+  --name mc \
+  minio/mc "$@"

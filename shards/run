@@ -3,7 +3,7 @@
 docker run -it --rm \
   --user "$(id -u):$(id -g)" \
   -v /etc/localtime:/etc/localtime:ro \
-  -v "${HOME}/.weechat:/home/.weechat" \
-  --name weechat \
-  zacheryph/weechat "$@"
-
+  -v "$(pwd):/data" \
+  --workdir /data \
+  --name crystal \
+  crystallang/crystal shards "$@"
