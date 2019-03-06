@@ -1,4 +1,4 @@
-FROM ruby:alpine3.6
+FROM ruby:alpine
 LABEL maintainer="Zachery Hostens <zacheryph@gmail.com>"
 
 RUN gem install --no-ri --no-rdoc pry
